@@ -18,16 +18,19 @@ You can install these dependencies using:
 
 ```bash
 pip install flask openai werkzeug
+```
 
 Alternatively, install all required dependencies using:
 ```bash
 pip install -r requirements.txt
+```
 
 ## Usage
 To start the application, run the following command:
 
 ```bash
 python app.py
+```
 
 Once the server is running, you can access the web application at http://127.0.0.1:5000.
 
