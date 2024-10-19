@@ -58,5 +58,5 @@ def upload_file():
     return render_template('upload.html', transcription=transcription_text)
 
 
-#if __name__ == '__main__':
-    #app.run()
+if __name__ == '__main__':
+    app.run()
