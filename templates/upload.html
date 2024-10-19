@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP3 Upload</title>
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center mb-4">MP3 Datei hochladen und transkribieren</h1>
+            <div class="card p-4 shadow-sm">
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="file" class="form-label">Wähle eine MP3 Datei:</label>
+                        <input type="file" id="file" name="file" class="form-control" accept=".mp3" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="api_key" class="form-label">API Key:</label>
+                        <input type="text" id="api_key" name="api_key" class="form-control" placeholder="API Key eingeben" required>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">Upload</button>
+                    </div>
+                </form>
+            </div>
+
+            {% if transcription %}
+                <div class="mt-4">
+                    <h2 class="text-center">Transkription:</h2>
+                    <textarea class="form-control" id="transcription-text" rows="10" readonly>{{ transcription }}</textarea>
+                    <div class="d-grid gap-2 mt-2">
+                        <button class="btn btn-secondary" onclick="copyToClipboard()">Text kopieren</button>
+                    </div>
+                </div>
+                <div class="mt-3 text-center">
+                    <p>Die Transkription wurde unter <strong>{{ file_name }}.txt</strong> gespeichert.</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<!-- JavaScript Funktion zum Kopieren des Textes -->
+<script>
+    function copyToClipboard() {
+        var copyText = document.getElementById("transcription-text");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /* Für mobile Geräte */
+        document.execCommand("copy");
+        alert("Text kopiert!");
+    }
+</script>
+</body>
+</html>
