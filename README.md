@@ -13,4 +13,4 @@ python app.py starts a local server: 127.0.0.1:5000
 
 **Credits**
 
-Coded with Python and ChatGPT. U need a API key for ChatGPT to use Whisper.
+Coded with Python and ChatGPT.
