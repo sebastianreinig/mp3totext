@@ -4,7 +4,7 @@
 
 **Requirements**
 
-- pip install flask openai werkzeug
+- pip install flask openai or pip install -r requirements.txt
 - ChatGPT API Key
 
 **Usage**
